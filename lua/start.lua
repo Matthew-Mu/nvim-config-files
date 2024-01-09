@@ -147,9 +147,6 @@ vim.cmd [[highlight IndentBlanklineIndent5 guifg=#2d3033 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent6 guifg=#2d3033 gui=nocombine]]
 
 require("ibl").setup {
-    indent = {
-        highlight = { "Function", "Label" },
-    },
     enabled = true,
     whitespace = { highlight = { "Whitespace", "NonText" } },
     scope = {
