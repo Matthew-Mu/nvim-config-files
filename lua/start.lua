@@ -37,6 +37,14 @@ require('lualine').setup {
         section_separators = { left = '', right = '' },
     }
 }
+
+-- Web-Dev-Icons
+require('nvim-web-devicons').setup {
+    color_icons = true,
+    default = true,
+
+}
+
 ----------------------------------------
 -- PLUGINS initialization           ----
 ----------------------------------------

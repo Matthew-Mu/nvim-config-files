@@ -55,6 +55,7 @@ call plug#begin()
    Plug 'kevinhwang91/nvim-ufo'
    Plug 'kevinhwang91/promise-async'
    Plug 'epwalsh/obsidian.nvim'
+   Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
 lua require('start')

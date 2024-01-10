@@ -24,8 +24,8 @@ map("n", "<F2>", ":set spell!<cr>")
 -- new words  added to ~/.config/nvim/spell/en.utf-8.add
 
 -- Quit buffer
-map("n", "qq", ":q<cr>")
-map("n", "qa", ":qa<cr>")
+-- map("n", "qq", ":q<cr>")
+-- map("n", "qa", ":qa<cr>")
 
 vim.cmd([[
 " " Copy to clipboard
