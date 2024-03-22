@@ -5,15 +5,15 @@ call plug#begin()
    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
    Plug 'rebelot/kanagawa.nvim'
    Plug 'wbthomason/packer.nvim'
-   Plug 'xiyaowong/nvim-transparent' 
+   Plug 'xiyaowong/nvim-transparent'
    Plug 'simrat39/symbols-outline.nvim'
-   Plug 'wbthomason/packer.nvim' 
+   Plug 'wbthomason/packer.nvim'
    Plug 'windwp/nvim-autopairs'
    Plug 'max397574/better-escape.nvim'
    Plug 'jose-elias-alvarez/null-ls.nvim'
    Plug 'williamboman/mason-lspconfig.nvim'
-   Plug 'tanvirtin/monokai.nvim' 
-   Plug 'kyazdani42/nvim-tree.lua' 
+   Plug 'tanvirtin/monokai.nvim'
+   Plug 'kyazdani42/nvim-tree.lua'
    Plug 'nvim-lualine/lualine.nvim'
    Plug 'lewis6991/impatient.nvim'
    Plug 'tpope/vim-surround'
@@ -57,5 +57,9 @@ call plug#begin()
    Plug 'epwalsh/obsidian.nvim'
    Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
+
+
+highlight RedundantSpaces ctermbg=red guibg=red
+match RedundantSpaces /\s\+$/
 
 lua require('start')
