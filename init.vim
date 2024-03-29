@@ -58,7 +58,7 @@ call plug#begin()
    Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
-
+set conceallevel=1
 highlight RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$/
 

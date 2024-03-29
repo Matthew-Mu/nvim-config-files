@@ -11,6 +11,7 @@ require('kanagawa').setup({
     keywordStyle = { italic = false, bold = true },
 })
 vim.cmd("colorscheme kanagawa")
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 
 -- Highlight colors
 vim.cmd([[
@@ -109,21 +110,6 @@ require 'FTerm'.setup({
 })
 vim.keymap.set('n', 't', '<CMD>lua require("FTerm").toggle()<CR>')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
-
-
--- null-ls for Vale, Selene and Markdown linters
-require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.diagnostics.vale,
-        require("null-ls").builtins.diagnostics.selene,
-        require("null-ls").builtins.diagnostics.markdownlint.with({
-            diagnostics_format = "[#{c}] #{m} (#{s})",
-            filter = function(diagnostic)
-                return diagnostic.code ~= "MD013/line-length"
-            end,
-        }),
-    },
-})
 
 
 -- Headlines for Markdown
