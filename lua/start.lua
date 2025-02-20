@@ -89,10 +89,38 @@ require("symbols-outline").setup {
 
 -- Better escape
 require("better_escape").setup {
-    mapping = { "jk", "kj" },   -- a table with mappings to use
-    timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-    clear_empty_lines = false,  -- clear line after escaping if there is only whitespace
-    keys = "<Esc>",             -- keys used for escaping, if it is a function will use the result everytime
+    timeout = vim.o.timeoutlen,
+    default_mappings = true,
+    mappings = {
+        i = {
+            j = {
+                -- These can all also be functions
+                k = "<Esc>",
+                j = "<Esc>",
+            },
+        },
+        c = {
+            j = {
+                k = "<Esc>",
+                j = "<Esc>",
+            },
+        },
+        t = {
+            j = {
+                k = "<C-\\><C-n>",
+            },
+        },
+        v = {
+            j = {
+                k = "<Esc>",
+            },
+        },
+        s = {
+            j = {
+                k = "<Esc>",
+            },
+        },
+    },
 }
 
 
@@ -111,19 +139,6 @@ vim.keymap.set('n', 't', '<CMD>lua require("FTerm").toggle()<CR>')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 
--- null-ls for Vale, Selene and Markdown linters
-require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.diagnostics.vale,
-        require("null-ls").builtins.diagnostics.selene,
-        require("null-ls").builtins.diagnostics.markdownlint.with({
-            diagnostics_format = "[#{c}] #{m} (#{s})",
-            filter = function(diagnostic)
-                return diagnostic.code ~= "MD013/line-length"
-            end,
-        }),
-    },
-})
 
 
 -- Headlines for Markdown
@@ -287,6 +302,7 @@ require('crates').setup({
 local nvim_lsp = require 'lspconfig'
 
 
+
 -- RUST
 -- -------------------------------------
 local rt = require("rust-tools")
@@ -364,6 +380,11 @@ require 'lspconfig'.marksman.setup {
 }
 require("inlay-hints").setup(
 )
+
+--GRAMMARLY
+
+require 'lspconfig'.grammarly.setup {}
+
 ----------------------------------------
 -- COMPLETION Setup                 ----
 ----------------------------------------
@@ -372,6 +393,9 @@ require('lspkind').init({
     -- mode = 'symbol_text'
 })
 
+require('lspconfig').clangd.setup {
+    inlayHints = true
+}
 
 vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 vim.opt.shortmess = vim.opt.shortmess + { c = true }

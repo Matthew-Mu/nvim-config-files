@@ -197,3 +197,7 @@ vim.keymap.set('n', 'cb', '<Plug>(comment_toggle_blockwise_current)')
 -- Toggle in VISUAL mode
 vim.keymap.set('x', 'cc', '<Plug>(comment_toggle_linewise_visual)')
 vim.keymap.set('x', 'cb', '<Plug>(comment_toggle_blockwise_visual)')
+
+if vim.lsp.inlay_hint then
+    vim.lsp.inlay_hint.enable(true, { 0 })
+end

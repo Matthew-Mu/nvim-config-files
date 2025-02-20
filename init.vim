@@ -1,5 +1,7 @@
 call plug#begin()
 
+   Plug 'deoplete-plugins/deoplete-clang'
+   Plug 'neoclide/coc.nvim', {'branch': 'release'}
    Plug 'nvim-treesitter/nvim-treesitter'
    Plug 'sindrets/diffview.nvim'
    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
@@ -58,4 +60,5 @@ call plug#begin()
    Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
+set conceallevel=1
 lua require('start')
